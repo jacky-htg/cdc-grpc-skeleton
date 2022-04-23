@@ -1,0 +1,13 @@
+syntax = "proto3";
+package skeleton;
+
+option go_package = "skeleton/pb/users;users";
+
+import "users/user_input.proto";
+import "users/user_output.proto";
+import "users/user_message.proto";
+
+service UserService {
+  rpc List(UserListInput) returns (Users) {}
+  rpc Create(UserCreateInput) returns (User) {}
+}

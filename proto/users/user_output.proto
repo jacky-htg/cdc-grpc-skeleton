@@ -1,0 +1,10 @@
+syntax = "proto3";
+package skeleton;
+
+option go_package = "skeleton/pb/users;users";
+
+import "users/user_message.proto";
+
+message Users {
+  repeated User user = 1;
+}

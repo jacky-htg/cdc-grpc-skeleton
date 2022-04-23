@@ -1,0 +1,14 @@
+syntax = "proto3";
+package skeleton;
+
+option go_package = "skeleton/pb/users;users";
+
+message User {
+  uint32 id = 1;
+  string username = 2;
+  string password = 3;
+  string email = 4;
+  bool is_active = 5;
+  string created = 6;
+  string updated = 7;
+}

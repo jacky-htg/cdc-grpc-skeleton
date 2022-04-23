@@ -1,0 +1,19 @@
+syntax = "proto3";
+package skeleton;
+
+option go_package = "skeleton/pb/users;users";
+
+import "generic/generic_message.proto";
+
+message UserListInput {
+  repeated string ids = 1;
+  repeated string emails = 2;
+  Pagination pagination = 3;
+}
+
+message UserCreateInput {
+  string username = 1;
+  string email = 2;
+  string password = 3;
+  string re_password = 4;
+}
