@@ -53,15 +53,14 @@ func (c *userServiceClient) Create(ctx context.Context, in *UserCreateInput, opt
 }
 
 // UserServiceServer is the server API for UserService service.
-// All implementations must embed UnimplementedUserServiceServer
+// All implementations should embed UnimplementedUserServiceServer
 // for forward compatibility
 type UserServiceServer interface {
 	List(context.Context, *UserListInput) (*Users, error)
 	Create(context.Context, *UserCreateInput) (*User, error)
-	mustEmbedUnimplementedUserServiceServer()
 }
 
-// UnimplementedUserServiceServer must be embedded to have forward compatible implementations.
+// UnimplementedUserServiceServer should be embedded to have forward compatible implementations.
 type UnimplementedUserServiceServer struct {
 }
 
@@ -71,7 +70,6 @@ func (UnimplementedUserServiceServer) List(context.Context, *UserListInput) (*Us
 func (UnimplementedUserServiceServer) Create(context.Context, *UserCreateInput) (*User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedUserServiceServer) mustEmbedUnimplementedUserServiceServer() {}
 
 // UnsafeUserServiceServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to UserServiceServer will
